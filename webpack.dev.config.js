@@ -15,7 +15,6 @@ module.exports = Object.assign({}, config, {
         quiet: true,
         proxy: {
             "/api": {
-                // target: 'http://118.31.3.170:8000',
                 target: 'http://localhost:8000',
                 secure: false
             }

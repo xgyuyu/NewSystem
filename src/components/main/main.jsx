@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import Home from "../home/home"
 
-function User(props) {
+function Main(props) {
   return (
     <div>
       main
@@ -9,4 +8,4 @@ function User(props) {
   )
 }
 
-export default User
+export default Main

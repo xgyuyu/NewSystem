@@ -52,6 +52,6 @@ module.exports = {
     'no-array-constructor': 2,
     'no-class-assign': 2,
     'no-cond-assign': 2,
-    'no-mixed-spaces-and-tabs': 0
+    'no-mixed-spaces-and-tabs': 2
   }
 }

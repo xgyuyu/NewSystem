@@ -1,9 +1,7 @@
 ﻿/*
   定义接口方法
 */
-import {
-    notification
-} from 'antd'
+import {notification} from 'antd'
 import createHistory from 'history/createHashHistory'
 let history = createHistory()
 
