@@ -11,7 +11,6 @@ export default class ERouter extends React.Component{
                     <Switch>
                         <Route path="/login" component={Login} />
                         <Route path="/Home" component={Home} />
-
                     </Switch>
                 </App>
             </HashRouter>

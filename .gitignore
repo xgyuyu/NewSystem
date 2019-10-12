@@ -7,4 +7,5 @@
 # apple
 .DS_Store
 
-.idea
+# .idea folder
+/.idea
