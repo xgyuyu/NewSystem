@@ -7,8 +7,13 @@ import Main from './components/main/main'
 import "antd/dist/antd.css"
 import { checkLogin } from './common/common'
 
+const Hello = () => (
+  <p>欢迎你</p>
+)
+
 const Home1 = withRouter(props => (
   <Home {...props}>
+    {/*<Route path='/' component={Hello}></Route>*/}
     <Route path='/user' component={User}></Route>
     <Route path='/main' component={Main}></Route>
   </Home>

@@ -75,7 +75,14 @@ function Home(props) {
 
             <Breadcrumb separator=">">
               <Breadcrumb.Item>
-                <Link to='/' href="/" onClick={()=>setDefaultKey(null)}>
+                <Link
+                  to='/'
+                  href="/"
+                  onClick={()=>{
+                    setDefaultKey(null)
+                    setbreadTitle('')
+                  }}
+                >
                   <span>新系统</span>
                 </Link>
               </Breadcrumb.Item>
