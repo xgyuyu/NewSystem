@@ -36,7 +36,11 @@ function Home(props) {
   }
   const menuClick = (key) => {
     setDefaultKey([key.key])
-    setbreadTitle(MenuArr[key.key].name)
+    if (!isNaN(Number(key.key))) {
+      setbreadTitle(MenuArr[key.key].name)
+    } else {
+      setbreadTitle('')
+    }
   }
 
   return(
