@@ -1,7 +1,9 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { Route, } from 'react-router-dom'
 import Login from './components/login/login'
 import Home from './components/home/home'
+import User from './components/user/user'
+import Main from './components/main/main'
 import "antd/dist/antd.css"
 import { checkLogin } from './common/common'
 
@@ -12,11 +14,13 @@ class App extends Component {
     }
     render() {
         return (
-            <div>
+            <Fragment>
                 <Route path='/Login' component={Login}></Route>
-
-                <Route exact path='/' component={Home}></Route>
-            </div>
+                <Home>
+                    <Route path='/user' component={User}></Route>
+                    <Route path='/main' component={Main}></Route>
+                </Home>
+            </Fragment>
         )
     }
 }

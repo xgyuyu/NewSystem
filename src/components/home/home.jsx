@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { Layout, Menu, Icon } from 'antd'
+import { Link, Route } from 'react-router-dom'
+import { checkLogin } from '../../common/common'
+import User from "../user/user"
+import Main from "../main/main"
 
 const { Header, Sider, Content } = Layout
-import { checkLogin } from '../../common/common'
-function Home() {
+function Home(props) {
   useEffect(() => {
       checkLogin()
   }, [])
@@ -11,22 +14,25 @@ function Home() {
   const toggle = () => {
     setCollapsed(!collapsed)
   }
+  console.log(props.children)
   return(
     <Layout>
       <Sider trigger={null} collapsible collapsed={collapsed}>
-        <div className="logo" />
-        <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
+        <div className="logo">
+          <Link to="/" href="/">新系统</Link>
+        </div>
+        <Menu theme="dark" mode="inline">
           <Menu.Item key="1">
-            <Icon type="user" />
-            <span>nav 1</span>
+            <Link to="/user" href="/user">
+              <Icon type="user" />
+              <span>用户列表</span>
+            </Link>
           </Menu.Item>
           <Menu.Item key="2">
-            <Icon type="video-camera" />
-            <span>nav 2</span>
-          </Menu.Item>
-          <Menu.Item key="3">
-            <Icon type="upload" />
-            <span>nav 3</span>
+            <Link to="/main" href="/main">
+              <Icon type="video-camera" />
+              <span>主列表</span>
+            </Link>
           </Menu.Item>
         </Menu>
       </Sider>
@@ -46,7 +52,7 @@ function Home() {
             minHeight: 280,
           }}
         >
-          Content
+          {props.children}
         </Content>
       </Layout>
     </Layout>
