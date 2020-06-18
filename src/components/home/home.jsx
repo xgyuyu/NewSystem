@@ -1,28 +1,67 @@
 import React, { useState, useEffect } from 'react'
 import { Layout, Menu, Icon, Breadcrumb } from 'antd'
 import { Link, Route } from 'react-router-dom'
-import { checkLogin } from '../../common/common'
 
 const { Header, Sider, Content } = Layout
-
+const { SubMenu } = Menu
 const MenuArr = [
+
   {
     id: '0',
-    name: '用户列表',
-    link: '/user'
+    name: 'ClassComponent',
+    link: '/ClassComponent'
   },
   {
     id: '1',
-    name: '主列表',
-    link: '/main'
-  }
+    name: 'Hoc',
+    link: '/Hoc'
+  },
+  {
+    id: '2',
+    name: 'RenderProps',
+    link: '/RenderProps'
+  },
+  {
+    id: '3',
+    name: 'Functional',
+    link: '/Functional'
+  },
+  {
+    id: '4',
+    name: 'useState',
+    link: '/useState'
+  },
+  {
+    id: '5',
+    name: 'UseEffect',
+    link: '/UseEffect'
+  },
+  {
+    id: '6',
+    name: 'CaptureValue',
+    link: '/CaptureValue'
+  },
+  {
+    id: '7',
+    name: 'UseMemo',
+    link: '/UseMemo'
+  },
+  {
+    id: '8',
+    name: 'UseCallback',
+    link: '/UseCallback'
+  },
+  {
+    id: '9',
+    name: 'UseRef',
+    link: '/UseRef'
+  },
 ]
 
 function Home(props) {
   const [defaultKey, setDefaultKey] = useState(null)
   const [breadTitle, setbreadTitle] = useState('')
   useEffect(() => {
-    checkLogin()
     const pathname = props.location.pathname
     MenuArr.map(v => {
       if (pathname === v.link) {
@@ -44,23 +83,41 @@ function Home(props) {
   }
 
   return(
-    <Layout>
+    <Layout style={{height: '100%'}}>
       <Sider trigger={null} collapsible collapsed={collapsed}>
         <Menu theme="dark" mode="inline" selectedKeys={defaultKey} onClick={(key) => menuClick(key)}>
           <Menu.Item>
             <Link to='/' href="/" onClick={()=>setDefaultKey(null)}>
-              <span>新系统</span>
+              <span>hooks</span>
             </Link>
           </Menu.Item>
           {
-            MenuArr.map((v, k) => (
-              <Menu.Item key={k}>
+            MenuArr.map((v, k) => {
+              if (v.children) {
+                return (
+                  <SubMenu key={k} title={v.name}>
+                    {
+                      (v.children|| []).map((v2, k1) => (
+                        <Menu.Item key={k1}>
+                          <Link to={v2.link}>
+                            <Icon type="user" />
+                            <span>{v2.name}</span>
+                          </Link>
+                        </Menu.Item>
+                      ))
+                    }
+                  </SubMenu>
+                )
+              }
+              return (
+                <Menu.Item key={k}>
                   <Link to={v.link} href="/user">
                     <Icon type="user" />
                     <span>{v.name}</span>
                   </Link>
-              </Menu.Item>
-            ))
+                </Menu.Item>
+              )
+            })
           }
         </Menu>
       </Sider>
@@ -83,7 +140,7 @@ function Home(props) {
                     setbreadTitle('')
                   }}
                 >
-                  <span>新系统</span>
+                  <span>hooks</span>
                 </Link>
               </Breadcrumb.Item>
               <Breadcrumb.Item>{breadTitle}</Breadcrumb.Item>

@@ -9,16 +9,10 @@ module.exports = Object.assign({}, config, {
         host:'0.0.0.0',
         overlay: true,
         compress: true,
-        open: true,
+        open: false,
         hot: true,
         inline: true,
         quiet: true,
-        proxy: {
-            "/api": {
-                target: 'http://localhost:8000',
-                secure: false
-            }
-        }
     },
     plugins: [
         new FriendlyErrorsPlugin(),
