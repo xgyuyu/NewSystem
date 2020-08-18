@@ -9,7 +9,7 @@ function UseEffect() {
     // 使用浏览器的 API 更新页面标题
     console.log('执行')
     document.title = `You clicked ${count} times`
-  })//
+  }, [count])//
 
   return (
     <div>

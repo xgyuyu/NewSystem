@@ -6,6 +6,8 @@ export default function UseRef() {
     // `current` 指向已挂载到 DOM 上的文本输入元素
     console.log(inputEl.current)
     inputEl.current.focus()
+    // const obj = {a: '123'}
+    // console.log(obj?.a)
   }
 
   return (

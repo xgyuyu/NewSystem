@@ -14,7 +14,7 @@ function Counter() {
       <button onClick={() => {
         setCount(count + 1)
         console.log(count)
-      }}>+</button>
+      }}>+123</button>
     </div>
   )
 }

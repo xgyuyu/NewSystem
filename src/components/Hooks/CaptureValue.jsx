@@ -6,8 +6,8 @@ export default function CaptureValue() {
   const handleAlertClick = useCallback(
     () => {
       setTimeout(() => {
-        alert("You clicked on: " + count)
-        // alert("You clicked on: " + countRef.current)
+        // alert("You clicked on: " + count)
+        alert("You clicked on: " + countRef.current)
       }, 3000)
     },
     [count]
@@ -18,7 +18,7 @@ export default function CaptureValue() {
       <p>You clicked {count} times</p>
       <button
         onClick={() => {
-          // countRef.current = count + 1
+          countRef.current = count + 1
           setCount(count + 1)
         }}
       >
